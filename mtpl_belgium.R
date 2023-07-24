@@ -117,9 +117,7 @@ test_dgt0_glm$nclaims_obs <- test_dgt0_glm$nclaims
 test_dgt0_glm$nclaims <- d_hat_tst[d_hat_tst > 0]
 y_hat_tst <- predict(glm2, newdata = test_dgt0_glm, type = "response")
 
-scores_glm <- abs(test_dgt0_glm$average - y_hat_tst)
-mae_glm <- mean(scores_glm)
-mae_glm
+mae_glm <- mean(abs(test_dgt0_glm$average - y_hat_tst))
 
 test_dgt0_glm$lower_glm <- pmax(0, y_hat_tst - s_hat_glm)
 test_dgt0_glm$upper_glm <- y_hat_tst + s_hat_glm

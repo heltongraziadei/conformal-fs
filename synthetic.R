@@ -90,8 +90,6 @@ glm2 <- glm(y ~ ., data = training[training$d > 0, ],
 
 d_hat_cal <- round(predict(rf1, data = calibration)$predictions)
 
-mae_glm_d_1 <- mean(abs(d_hat_cal - calibration$d))
-
 cal_dgt0 <- calibration[d_hat_cal > 0, ]
 
 cal_dgt0$d <- d_hat_cal[d_hat_cal > 0]
@@ -115,7 +113,6 @@ test_dgt0_glm$d <- d_hat_tst[d_hat_tst > 0]
 y_hat_tst <- predict(glm2, newdata = test_dgt0_glm, type = "response")
 
 mae_glm <- mean(abs(test_dgt0_glm$y - y_hat_tst))
-mae_glm
 
 test_dgt0_glm$lower_glm <- pmax(0, y_hat_tst - s_hat_glm)
 
@@ -127,10 +124,6 @@ coverage_glm <- mean(test_dgt0_glm$lower_glm <= test_dgt0_glm$y & test_dgt0_glm$
 rf2 <- ranger(log(y) ~ ., data = training[training$d > 0, ], num.trees = 10^3)
 
 d_hat_cal <- round(predict(rf1, data = calibration)$predictions)
-mae_rf_d_1 <- mean(abs(d_hat_cal - calibration$d))
-
-mae_glm_d_1
-mae_rf_d_1
 
 cal_dgt0 <- calibration[d_hat_cal > 0, ]
 cal_dgt0$d <- d_hat_cal[d_hat_cal > 0]

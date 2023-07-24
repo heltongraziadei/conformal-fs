@@ -8,8 +8,9 @@ library(insuranceData)
 
 set.seed(123456)
 
-# Read data and select relevant variables
+# Read data
 db <- read.csv("rural_data_pca.csv") %>% 
+  # select relevant variables
   dplyr::select(-c(sum_total_premios, 
                    sum_indenizacao_rel)) %>% 
   filter(n_apolices > 0) %>% 
@@ -129,7 +130,6 @@ y_hat_cal <- exp(predict(rf2, data = cal_dgt0)$predictions)
 R <- abs(cal_dgt0$sum_indenizacao_rel - y_hat_cal)
 s_hat_rf <- sort(R)[round((1 - alpha)*
                             (nrow(cal_dgt0) + 1))]
-cat("Interval length (RF):", s_hat_rf)
 
 d_hat_tst <- round(predict(rf1, data = test)$predictions)
 test_dgt0_rf <- test[d_hat_tst > 0, ]
@@ -139,7 +139,6 @@ test_dgt0_rf$n_sinistros <- d_hat_tst[d_hat_tst > 0]
 y_hat_tst <- exp(predict(rf2, data = test_dgt0_rf)$predictions)
 
 mae_rf <- mean(abs(test_dgt0_rf$sum_indenizacao_rel - y_hat_tst))
-mae_rf
 
 test_dgt0_rf$lower_rf <- pmax(0, y_hat_tst - s_hat_rf)
 test_dgt0_rf$upper_rf <- y_hat_tst + s_hat_rf
