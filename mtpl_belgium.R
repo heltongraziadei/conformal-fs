@@ -7,7 +7,7 @@ library(gridExtra)
 library(insuranceData)
 
 set.seed(12345)
-mtpl_belgium <- readRDS("mtpl_data.rds")
+mtpl_belgium <- readRDS("data/mtpl_data.rds")
 mtpl_belgium <- mtpl_belgium %>% dplyr::select(-c(amount))
 
 # Data treatments 
