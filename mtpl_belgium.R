@@ -73,8 +73,7 @@ features_freq <- c('coverage', 'fuel', 'sex', 'use',
 
 features_sev <- c('coverage', 'fuel', 'sex', 'use', 
                   'fleet', 'ageph', 'power', 'agec', 'bm',
-                  'long', 'lat',
-                  "nclaims")
+                  'long', 'lat')
 
 formula_be_freq_glm <- paste("nclaims ~", paste(features_freq_glm, 
                                                 collapse = ' + '))
@@ -123,10 +122,6 @@ test_dgt0_glm$lower_glm <- pmax(0, y_hat_tst - s_hat_glm)
 test_dgt0_glm$upper_glm <- y_hat_tst + s_hat_glm
 
 coverage_glm <- mean(test_dgt0_glm$lower_glm <= test_dgt0_glm$average & test_dgt0_glm$average <= test_dgt0_glm$upper_glm)
-
-features_sev <- c('coverage', 'fuel', 'sex', 'use', 
-                  'fleet', 'ageph', 'power', 'agec', 'bm',
-                  'long', 'lat', "nclaims")
 
 # Model 2 - random forest for severity stage
 rf2 <- ranger(formula_be_sev, 

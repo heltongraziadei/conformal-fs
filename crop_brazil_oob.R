@@ -52,6 +52,8 @@ sig_hat_tst <- apply(y_hat_tst, 1, sd)
 tst_dgt0$lower <- pmax(0, mu_hat_tst - s_hat * sig_hat_tst)
 tst_dgt0$upper <- mu_hat_tst + s_hat * sig_hat_tst
 
+coverage_oob <- mean(tst_dgt0$lower <= tst_dgt0$sum_indenizacao_rel & tst_dgt0$sum_indenizacao_rel <= tst_dgt0$upper)
+
 intervals <- tst_dgt0 %>% 
   filter(sum_indenizacao_rel > 0)
 
