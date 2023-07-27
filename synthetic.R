@@ -67,6 +67,8 @@ g2 <- db %>%
 
 g_sim <- grid.arrange(g1, g2, nrow = 1)
 
+# write.csv(db, "synthetic.csv",  row.names = FALSE)
+
 ggsave("synthetic_distributions.pdf", g_sim, height = 6, width = 16)
 
 # Split data in training, calibration and test
