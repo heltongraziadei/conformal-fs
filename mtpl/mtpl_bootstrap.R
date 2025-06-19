@@ -37,13 +37,13 @@ fit <- glm(y ~ ., data = trn |> filter(d > 0),
            family = Gamma(link = "log"),
            control = list(epsilon = 1e-4, maxit = 100))
 
-boot <- ciTools::add_pi(tst, fit, names = c("lower", "upper"), alpha = alpha, nsims = B)
+boot <- ciTools::add_pi(tst, fit, names = c("lower", "upper"), alpha = alpha, nSims = B)
 
 lower <- pmax(0, boot$lower)
 upper <- boot$upper
 
-mean(lower <= tst$y & upper >= tst$y) # 0.1104
+mean(lower <= tst$y & upper >= tst$y) # 0.1105
 
-mean(upper - lower) # 7656.78
+mean(upper - lower) # 7656.35
 
 tst_boot <- tst |> mutate(lower, upper)
