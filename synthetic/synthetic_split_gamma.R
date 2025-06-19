@@ -60,7 +60,7 @@ r_hat <- sort(R)[round((1 - alpha)*(nrow(cal) + 1))]
 
 nrow(cal) - length(unique(R))
 
-mean(abs(tst$y - psi_hat_tst)) # 11225.85
+sqrt(mean((tst$y - psi_hat_tst)^2)) # 23775.38
 
 lower <- pmax(0, psi_hat_tst - r_hat * sig_hat_tst)
 upper <- psi_hat_tst + r_hat * sig_hat_tst

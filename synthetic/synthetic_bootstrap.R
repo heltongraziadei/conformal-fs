@@ -42,13 +42,15 @@ fit <- glm(y ~ ., data = trn |> filter(d > 0),
            family = Gamma(link = "log"),
            control = list(epsilon = 1e-4, maxit = 100))
 
-boot <- add_pi(tst, fit, names = c("lower", "upper"), alpha = alpha, nsims = B)
+boot <- add_pi(tst, fit, names = c("lower", "upper"), alpha = alpha, nSims = B)
 
 lower <- pmax(0, boot$lower)
+
+lower <- boot$lower
 upper <- boot$upper
 
 mean(lower <= tst$y & upper >= tst$y) # 0.3083
 
-mean(upper - lower) # 50707.88
+mean(upper - lower) # 50789.91
 
 tst_boot <- tst |> mutate(lower, upper)
