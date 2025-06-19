@@ -33,19 +33,17 @@ tst$d <- predict(rf1, data = tst)$predictions |> round()
 
 # severity model
 
-# fit <- lm(y ~ ., data = trn)
-
 fit <- glm(y ~ ., data = trn |> filter(d > 0),
            family = Gamma(link = "log"),
            control = list(epsilon = 1e-4, maxit = 100))
 
-boot <- ciTools::add_pi(tst, fit, names = c("lower", "upper"), alpha = alpha, nsims = B)
+boot <- ciTools::add_pi(tst, fit, names = c("lower", "upper"), alpha = alpha, nSims = B)
 
 lower <- pmax(0, boot$lower)
 upper <- boot$upper
 
-mean(lower <= tst$y & upper >= tst$y) # 0.2831
+mean(lower <= tst$y & upper >= tst$y) # 0.2962
 
-mean(upper - lower) # 599007.70
+mean(upper - lower) # 616466.00
 
 tst_boot <- tst |> mutate(lower, upper)
