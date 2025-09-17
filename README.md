@@ -8,8 +8,6 @@ https://arxiv.org/abs/2307.13124
 
 ### Folders
 
-In this repository, we have three folders: 
-
 - **`synthetic/` – §4.1**  
   Scripts to generate data and run the two-stage frequency–severity pipeline with conformalization (split-conformal baseline; GLM/RF severity variants). 
   Produces summary metrics such as empirical **coverage** and **average width**.
