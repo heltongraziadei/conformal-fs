@@ -6,7 +6,7 @@ Conformal prediction for frequency-severity modeling
 
 https://arxiv.org/abs/2307.13124
 
-### Description
+### Folders
 
 In this repository, we have three folders: 
 
@@ -20,6 +20,6 @@ In this repository, we have three folders:
 - **`crop/` – §4.3**  
   Real-data application to **Brazilian crop insurance** (municipality-level aggregation as described in the paper), with the same reporting of coverage and width.
 
-### Methods referenced
+### Methods
 - **Split conformal prediction (two-stage)** – main procedure across **§4.1–4.3**.  
 - **Out-of-bag (OOB) extension** – **§5**: when the **severity** model is a Random Forest, OOB residuals can replace a held-out calibration set. OOB variants live alongside split-conformal scripts within each folder.
