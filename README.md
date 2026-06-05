@@ -17,7 +17,7 @@ Conformal prediction for frequency-severity modeling
 
 > Helton Graziadei, Paulo C. Marques F., Eduardo F. L. de Melo and Rodrigo S. Targino
 
-https://arxiv.org/abs/2307.13124
+> https://doi.org/10.1080/02664763.2025.2567988
 
 ### Folders
 
