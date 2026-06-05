@@ -1,3 +1,16 @@
+```bibtex
+@article{graziadei2025,
+  title = {Conformal prediction for frequency-severity modeling,
+  author = {Helton Graziadei and Paulo C. {Marques F.} and Melo, Eduardo F.L. and Targino, Rodrigo S.},
+  journal = {Journal of Applied Statistics},
+  pages = {1--20},
+  year = {2025},
+  issn = {1360-0532},
+  doi = {https://doi.org/10.1080/02664763.2025.2567988},
+  url = {https://www.tandfonline.com/doi/full/10.1080/02664763.2025.2567988}
+}
+```
+
 # conformal-fs
 
 Conformal prediction for frequency-severity modeling
