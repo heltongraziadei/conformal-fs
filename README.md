@@ -1,7 +1,7 @@
 ```bibtex
 @article{graziadei2025,
-  title = {Conformal prediction for frequency-severity modeling,
-  author = {Helton Graziadei and Paulo C. {Marques F.} and Melo, Eduardo F.L. and Targino, Rodrigo S.},
+  title = {Conformal prediction for frequency-severity modeling},
+  author = {Helton Graziadei and Paulo C. {Marques F.} and Eduardo F. L. {de Melo} and Rodrigo S. Targino},
   journal = {Journal of Applied Statistics},
   pages = {1--20},
   year = {2025},
